@@ -100,6 +100,11 @@ def select_device(device='', batch_size=0, newline=True):
     LOGGER.info(s)
     return torch.device(arg)
 
+def time_synchronized():
+    # pytorch-accurate time
+    if torch.cuda.is_available():
+        torch.cuda.synchronize()
+    return time.time()
 
 def time_sync():
     # PyTorch-accurate time
