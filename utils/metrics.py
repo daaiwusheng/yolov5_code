@@ -144,10 +144,12 @@ class ConfusionMatrix:
             for i, gc in enumerate(gt_classes):
                 self.matrix[self.nc, gc] += 1  # background FN
             return
-
         detections = detections[detections[:, 4] > self.conf]
         gt_classes = labels[:, 0].int()
         detection_classes = detections[:, 5].int()
+        print(f"nc: {self.nc}")
+        print(f"detection_classes: {detection_classes.shape}")
+        print(f"detection_classes: {detection_classes}")
         iou = box_iou(labels[:, 1:], detections[:, :4])
 
         x = torch.where(iou > self.iou_thres)

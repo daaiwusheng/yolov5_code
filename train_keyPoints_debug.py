@@ -466,7 +466,7 @@ def parse_opt(known=False):
     opt.weights = 'models/yolov5s.pt'
     opt.name = 'yolov5_key_points_debug'
     opt.hyp = 'data/hyps/hyp.scratch-high.yaml'
-    opt.epochs = 20
+    opt.epochs = 9
 
     return opt
 

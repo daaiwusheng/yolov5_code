@@ -222,7 +222,8 @@ class ComputeLoss:
 
                 # landmarks loss
                 # print('ps: ', ps.shape)
-                plandmarks = ps[:, 5:13].sigmoid() * 8. - 4.
+                # plandmarks = ps[:, 5:13].sigmoid() * 8. - 4.
+                plandmarks = ps[:, 5 + self.nc:13 + self.nc].sigmoid() * 4. - 2.
 
                 # print('anchors: ', anchors[i].shape)
                 # print('plandmarks: ', plandmarks.shape)
