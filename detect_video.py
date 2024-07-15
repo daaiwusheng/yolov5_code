@@ -156,6 +156,12 @@ def parse_opt():
     parser.add_argument('--half', action='store_true', help='use FP16 half-precision inference')
     parser.add_argument('--dnn', action='store_true', help='use OpenCV DNN for ONNX inference')
     opt = parser.parse_args()
+
+    opt.source = '/home/wangyu/tmp_data/视觉算法测试题/elevator.mp4'
+    opt.weights = 'runs/train/yolov5_key_points_debug80/weights/best.pt'
+    opt.name = 'elevator_detect'
+    opt.imgsz = [1920, 1280]
+
     opt.imgsz *= 2 if len(opt.imgsz) == 1 else 1  # expand
     print_args(vars(opt))
     return opt
